@@ -1,0 +1,25 @@
+{
+  "name": "bth_trader_webapp",
+  "version": "1.0.0",
+  "description": "jsframe_projekt",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.17.0",
+    "http-server": "^0.12.0",
+    "mocha": "^4.1.0",
+    "selenium-webdriver": "^3.6.0"
+  },
+  "scripts": {
+    "pretest": "npm stop; npm start",
+    "test": "mocha test/selenium.js",
+    "posttest": "npm stop",
+    "start": "echo 'http://localhost:8082/'; node node_modules/http-server/bin/http-server -s -p 8082 www &",
+    "stop": "killall http-server || true",
+    "eslint": "eslint www/js/*.js || true",
+    "deploy": "rsync -av www/* deploy@nile16.me:/var/www/nile16.me/html/"
+  },
+  "author": "Nils Leandersson",
+  "license": "ISC"
+}

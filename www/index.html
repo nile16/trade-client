@@ -1,0 +1,97 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>BTH Trader</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="shortcut icon" href="images/favicon.ico" />
+</head>
+
+<body>
+    <div class="navbar">
+        <div id="registerLink" class="navItem">Register</div>
+        <div id="logoutLink" class="navItem">Logout</div>
+        <div id="loginLink" class="navItem">Login</div>
+        <div id="transferLink" class="navItem">Transfer</div>
+        <div id="tradeLink" class="navItem">Trade</div>
+        <div id="portfolioLink" class="navItem">Portfolio</div>
+        <div class="navLogo">BTH Trader</div>
+    </div>
+
+    <div class="tickerTape">
+        <div id="ticker0" class="ticker"></div>
+        <div id="ticker1" class="ticker"></div>
+        <div id="ticker2" class="ticker"></div>
+        <div id="ticker3" class="ticker"></div>
+        <div id="ticker4" class="ticker"></div>
+        <div id="ticker5" class="ticker"></div>
+    </div>
+
+    <div class="main">
+
+        <div id="errorMsg"></div>
+
+        <div id="loginForm" class="view">
+            <h2>Login</h2>
+            <label class="inputLabel">Email<br>
+                <input id="emailFieldLogin" class="inputField" type="email" required><br><br>
+            </label><br>
+            <label class="inputLabel">Password<br>
+                <input id="passwordFieldLogin" class="inputField" type="password" required><br><br>
+            </label><br>
+            <input type="checkbox" id="showPasswordCheckLogin" autocomplete="off" >&nbsp;Visa lösenord<br><br><br>
+            <button id="loginButton" class="inputSubmit">Login</button><br><br>
+        </div>
+
+        <div id="registerForm" class="view">
+            <h2>Register a new user</h2>
+            <label class="inputLabel">Name<br>
+                <input id="nameFieldReg" class="inputField" type="text" required><br><br>
+            </label><br>
+            <label class="inputLabel">Email<br>
+                <input id="emailFieldReg" class="inputField" type="email" required><br><br>
+            </label><br>
+            <label class="inputLabel">Password<br>
+                <input id="passwordFieldReg" class="inputField" type="password" required><br><br>
+            </label><br>
+            <input type="checkbox" id="showPasswordCheckReg" autocomplete="off" >&nbsp;Visa lösenord<br><br><br>
+            <button id="registerButton" class="inputSubmit">Register</button><br><br>
+        </div>
+
+        <div id="transferForm" class="view">
+            <h2>Transfer Funds</h2>
+            <input name="transTypeRadio" type="radio" value="deposit" checked="checked">Deposit</input>
+            <input name="transTypeRadio" type="radio" value="withdraw">Withdraw</input><br><br>
+            <label class="inputLabel">Amount<br>
+                <input id="amountField" class="inputField" type="number">
+            </label><br><br>
+            <button id="transferButton" class="inputSubmit">Transfer</button>
+        </div>
+
+        <div id="portfolioView" class="view">
+            <h2>Portfolio</h2>
+            <div id="portfolio"></div>
+        </div>
+
+        <div id="tradeForm" class="view">
+            <h2>Trade</h2>
+            <label class="inputLabel">Stock<br>
+                <input id="stockField" class="inputField" type="text">
+            </label><br><br>
+            <label class="inputLabel">Quantity<br>
+                <input id="quantField" class="inputField" type="number">
+            </label>
+            <p>A negative quantity indicates sell.</p>
+            <button id="tradeButton" class="inputSubmit">Trade</button>
+        </div>
+    </div>
+
+    <div id="dimmer">
+        <div id="waitMsg">Contacting Server...</div>
+    </div>
+</body>
+
+<script src="js/main.js"></script>
+
+</html>
