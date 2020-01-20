@@ -29,7 +29,7 @@ skillnad mot en PHP-baserad sida som riskerar bli helt blank.
 i bakgrunden.
 * Använder lite datatrafik. Endast ett minimum av data hämtas från servern till
 skillnad mot tex en PHP-baserad webbsida där hela webbsidan måste laddas om vid
-varje knapp-tryck.
+varje klick.
 * Är sidan responsiv lämpar den sig mycket väl för att wrappas i en mobil-hybrid-app
 eftersom den beter sig som en applikation.
 Appen behöver bara starta webbläsaren och visa webbsidan.
@@ -39,7 +39,7 @@ Valet föll på vanilla Javascript därför att användandet av ramverk har inga
 allt som ett ramverk kan göra kan skrivas i vanilla Javascript.
 Däremot finns ett antal nackdelar med ramverk.
 
-* Utvecklaren måste vara bevandrad i det speciella ramverket.
+* Utvecklaren måste vara insatt i ramverket.
 * Laddfilerna blir ofta mycket större och därmed laddas webbsidan långsammare.
 * Oftast stora mängder med dependencies.
 * Risk för buggar i ramverket som blir svåra att åtgärda.
@@ -60,7 +60,7 @@ När en div startar längst till höger får den en aktiekurs inskriven som
 den behåller hela vägen till vänsterkanten.
 När den nått vänsterkanten flyttas den tillbaka till högerkanten och
 processen börjar om med en ny aktiekurs.
-Aktiekurserna tas en i taget från en kö.
+Aktiekurserna tas en i taget från en kö, 'tapeQue'.
 När kön är tom fylls den på med de senaste aktiekurserna som finns
 sparade i en variabel, 'prices', som innehåller de senaste kurserna från severn.
 En webbsocket-server skickar hela tiden aktuella aktiekurser i form av JSON som
