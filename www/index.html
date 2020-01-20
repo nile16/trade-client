@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>BTH Trader</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/main.css">
     <link rel="shortcut icon" href="images/favicon.ico" />
 </head>
@@ -61,10 +62,10 @@
 
         <div id="transferForm" class="view">
             <h2>Transfer Funds</h2>
-            <input name="transTypeRadio" type="radio" value="deposit" checked="checked">Deposit</input>
-            <input name="transTypeRadio" type="radio" value="withdraw">Withdraw</input><br><br>
+            <input id="radioDeposit" name="transTypeRadio" type="radio" value="deposit" checked="checked">Deposit</input>
+            <input id="radioWithdraw"  name="transTypeRadio" type="radio" value="withdraw">Withdraw</input><br><br>
             <label class="inputLabel">Amount<br>
-                <input id="amountField" class="inputField" type="number">
+                <input id="amountField" class="inputField" type="number" step="any">
             </label><br><br>
             <button id="transferButton" class="inputSubmit">Transfer</button>
         </div>

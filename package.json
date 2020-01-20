@@ -14,7 +14,7 @@
   "scripts": {
     "pretest": "npm stop; npm start",
     "test": "mocha test/selenium.js",
-    "posttest": "npm stop",
+    "posttest": "npm stop; npm run eslint",
     "start": "echo 'http://localhost:8082/'; node node_modules/http-server/bin/http-server -s -p 8082 www &",
     "stop": "killall http-server || true",
     "eslint": "eslint www/js/*.js || true",

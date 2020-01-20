@@ -223,6 +223,7 @@ document.getElementById('showPasswordCheckLogin')
  * Makes the login form visible and display suitable links in navbar.
  */
 function showLogin() {
+    clearErrorMsg();
     showView('loginForm');
     showLinks(['registerLink']);
 }
@@ -294,6 +295,7 @@ document.getElementById('showPasswordCheckReg')
  * Makes the registration form visible and display suitable links in navbar.
  */
 function showRegister() {
+    clearErrorMsg();
     showLinks(['loginLink']);
     showView('registerForm');
 }
@@ -364,6 +366,7 @@ document.getElementById('transferLink').addEventListener("click", showTransfer);
  * Makes the fund transfer form visible and display suitable links in navbar.
  */
 function showTransfer() {
+    clearErrorMsg();
     showView('transferForm');
     showLinks(['logoutLink', 'tradeLink', 'portfolioLink']);
 }
@@ -424,6 +427,7 @@ document.getElementById('portfolioLink').addEventListener("click", showPortfolio
  */
 function showPortfolio() {
     document.getElementById('portfolio').innerHTML = "";
+    clearErrorMsg();
     showLinks(['logoutLink', 'transferLink', 'tradeLink']);
     showView('portfolioView');
 
@@ -446,7 +450,7 @@ function drawPortfolio(data) {
         document.getElementById('stockField').value = "";
         document.getElementById('quantField').value = "";
 
-        html += "<th>Stock</th><th>Quantity</th><th>Est. Value</th>";
+        html += "<th>Stock</th><th>Qty.</th><th>Est. Value</th>";
 
         if (Object.keys(data.shr).length !== 0) {
             for (let stock in data.shr) {
@@ -487,6 +491,7 @@ document.getElementById('tradeLink').addEventListener("click", showTrade);
  * Makes the trade form visible and display suitable links in navbar.
  */
 function showTrade() {
+    clearErrorMsg();
     showLinks(['logoutLink', 'transferLink', 'portfolioLink']);
     showView('tradeForm');
 }

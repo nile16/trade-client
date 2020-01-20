@@ -13,10 +13,6 @@ const By = webdriver.By;
 let browser;
 
 
-// Does not work with WSL!! Use cygwin
-
-
-
 // Test suite
 test.describe("Client tests", function() {
     test.beforeEach(function(done) {
@@ -80,7 +76,7 @@ test.describe("Client tests", function() {
         done();
     });
 
-    test.it("Login wrong password", function(done) {
+    test.it("Login with wrong password", function(done) {
         this.timeout(20000);
         assertH2("Login");
         browser.sleep(1000);
@@ -95,7 +91,7 @@ test.describe("Client tests", function() {
         done();
     });
 
-    test.it("Login wrong email", function(done) {
+    test.it("Login with wrong email", function(done) {
         this.timeout(20000);
         assertH2("Login");
         browser.sleep(1000);
@@ -111,7 +107,7 @@ test.describe("Client tests", function() {
     });
 
 
-    test.it("Login transfer", function(done) {
+    test.it("Login and deposit", function(done) {
         this.timeout(20000);
         assertH2("Login");
         browser.sleep(1000);
@@ -124,6 +120,8 @@ test.describe("Client tests", function() {
         assertError("");
         browser.findElement(By.id("transferLink")).click();
         browser.sleep(1000);
+        browser.findElement(By.id("radioDeposit")).click();
+        browser.sleep(1000);
         browser.findElement(By.id("amountField")).sendKeys("10000");
         browser.sleep(1000);
         browser.findElement(By.id("transferButton")).click();
@@ -131,6 +129,79 @@ test.describe("Client tests", function() {
         assertError("");
         done();
     });
+
+
+    test.it("Login and buy stock", function(done) {
+        this.timeout(20000);
+        assertH2("Login");
+        browser.sleep(1000);
+        browser.findElement(By.id("emailFieldLogin")).sendKeys("nils@bth.se");
+        browser.sleep(1000);
+        browser.findElement(By.id("passwordFieldLogin")).sendKeys("1234");
+        browser.sleep(1000);
+        browser.findElement(By.id("loginButton")).click();
+        browser.sleep(2000);
+        assertError("");
+        browser.findElement(By.id("tradeLink")).click();
+        browser.sleep(1000);
+        browser.findElement(By.id("stockField")).sendKeys("BTH");
+        browser.sleep(1000);
+        browser.findElement(By.id("quantField")).sendKeys("1");
+        browser.sleep(1000);
+        browser.findElement(By.id("tradeButton")).click();
+        browser.sleep(2000);
+        assertError("");
+        done();
+    });
+
+
+    test.it("Login and sell stock", function(done) {
+        this.timeout(20000);
+        assertH2("Login");
+        browser.sleep(1000);
+        browser.findElement(By.id("emailFieldLogin")).sendKeys("nils@bth.se");
+        browser.sleep(1000);
+        browser.findElement(By.id("passwordFieldLogin")).sendKeys("1234");
+        browser.sleep(1000);
+        browser.findElement(By.id("loginButton")).click();
+        browser.sleep(2000);
+        assertError("");
+        browser.findElement(By.id("tradeLink")).click();
+        browser.sleep(1000);
+        browser.findElement(By.id("stockField")).sendKeys("BTH");
+        browser.sleep(1000);
+        browser.findElement(By.id("quantField")).sendKeys("-1");
+        browser.sleep(1000);
+        browser.findElement(By.id("tradeButton")).click();
+        browser.sleep(2000);
+        assertError("");
+        done();
+    });
+
+
+    test.it("Login and withdraw", function(done) {
+        this.timeout(20000);
+        assertH2("Login");
+        browser.sleep(1000);
+        browser.findElement(By.id("emailFieldLogin")).sendKeys("nils@bth.se");
+        browser.sleep(1000);
+        browser.findElement(By.id("passwordFieldLogin")).sendKeys("1234");
+        browser.sleep(1000);
+        browser.findElement(By.id("loginButton")).click();
+        browser.sleep(2000);
+        assertError("");
+        browser.findElement(By.id("transferLink")).click();
+        browser.sleep(1000);
+        browser.findElement(By.id("radioWithdraw")).click();
+        browser.sleep(1000);
+        browser.findElement(By.id("amountField")).sendKeys("10000");
+        browser.sleep(1000);
+        browser.findElement(By.id("transferButton")).click();
+        browser.sleep(2000);
+        assertError("");
+        done();
+    });
+
 
 
 });
